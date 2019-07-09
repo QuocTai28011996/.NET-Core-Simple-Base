@@ -16,22 +16,12 @@ namespace DemoAPI.Shared.Services.APIs.Authorization
 	/// <inheritdoc />
 	public class AuthService : IAuthService
 	{
-		#region Private Fields
-
 		private readonly DbService.IAuthService _authService;
-
-		#endregion
-
-		#region Constructor
 
 		public AuthService(DbService.IAuthService authService)
 		{
 			_authService = authService;
 		}
-
-		#endregion
-
-		#region Methods
 
 		public RegisterResponse Register(RegisterRequest request)
 		{
@@ -45,21 +35,22 @@ namespace DemoAPI.Shared.Services.APIs.Authorization
 			var user = _authService.CreateUser(request);
 			user.EntityStatus = EntityStatus.Activated;
 			var newUser = _authService.Where(x => x.DisplayName.Equals(request.Username));
-			if (!newUser.Any())
-			{
-				var createdUser = _authService.Create(user, out var isSaved);
 
-				if (!isSaved)
-				{
-					throw new SystemException("Internal Error");
-				}
-
-				return GenerateRegisterResponse(createdUser);
-			}
-			else
+			if (newUser.Any())
 			{
-				throw new BadRequestException(CommonConstant.Error.DuplicatedUserName);
+				throw new ConflictException(CommonConstant.Error.DuplicatedUserName);
 			}
+
+			var createdUser = _authService.Create(user, out var isSaved);
+
+			if (!isSaved)
+			{
+				throw new SystemException("Internal Error");
+			}
+
+
+			return GenerateRegisterResponse(createdUser);
+
 		}
 
 		public LoginResponse Login(LoginRequest request)
@@ -73,10 +64,6 @@ namespace DemoAPI.Shared.Services.APIs.Authorization
 
 			return GenerateLoginResponse(validateResult.Data as User);
 		}
-
-		#endregion
-
-		#region Private Helpers
 
 		private RegisterResponse GenerateRegisterResponse(User user)
 		{
@@ -113,6 +100,5 @@ namespace DemoAPI.Shared.Services.APIs.Authorization
 
 			return response;
 		}
-		#endregion
 	}
 }

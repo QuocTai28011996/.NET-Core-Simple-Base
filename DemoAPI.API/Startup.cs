@@ -1,5 +1,5 @@
-﻿using System.IO;
-using DemoAPI.Data.EF;
+﻿using DemoAPI.Data.EF;
+using DemoAPI.Data.EF.DataContext;
 using DemoAPI.Shared.Authorization.Handlers;
 using DemoAPI.Shared.Extensions;
 using DemoAPI.Shared.Filters;
@@ -10,11 +10,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -87,13 +85,14 @@ namespace DemoAPI.API
 			app.UseMvc();
 			app.UseStaticFiles();
 
-			
 			app.UseSwagger();
 			app.UseSwaggerUI(c =>
 			{
 				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Demo.API v1");
 			});
 		}
+
+
 
 		private void ConfigureCors(CorsPolicyBuilder builder)
 		{

@@ -1,5 +1,4 @@
-﻿using DemoAPI.Data.EF.Migrations;
-using DemoAPI.Data.Models.Database;
+﻿using DemoAPI.Data.Models.Database;
 using DemoAPI.Data.Models.Database.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
