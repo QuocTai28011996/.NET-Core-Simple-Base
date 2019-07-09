@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DemoAPI.Data.EF\DemoAPI.Data.EF.csproj" />
+    <ProjectReference Include="..\DemoAPI.Util\DemoAPI.Util.csproj" />
+  </ItemGroup>
+
+</Project>
