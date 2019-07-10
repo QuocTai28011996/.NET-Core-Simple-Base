@@ -55,7 +55,7 @@ namespace DemoAPI.Service.Services.Authorization
 				return new ResponseMessage(HttpStatusCode.BadRequest, "Vui lòng nhập mật khẩu.");
 			}
 
-			var user = FirstOrDefault(x =>  x.EntityStatus == EntityStatus.Activated);
+			var user = FirstOrDefault(x =>  x.DisplayName == request.UserName);
 
 			if (user == null)
 			{
