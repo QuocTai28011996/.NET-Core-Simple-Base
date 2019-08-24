@@ -13,7 +13,7 @@ using DemoAPI.Shared.APIResponse.Student;
 using DemoAPI.Shared.APIResponse.StudentCourse;
 using DemoAPI.Util.Constants;
 using Microsoft.EntityFrameworkCore;
-using DbService = DemoAPI.Service.Services;
+using DbService = DemoAPI.Service.Services.EntityService;
 
 namespace DemoAPI.Shared.Services.APIs.Realizations
 {

@@ -11,7 +11,7 @@ using DemoAPI.Shared.APIResponse.Student;
 using DemoAPI.Shared.Constants;
 using DemoAPI.Shared.Extensions;
 using DemoAPI.Util.Constants;
-using DbService = DemoAPI.Service.Services;
+using DbService = DemoAPI.Service.Services.EntityService;
 
 namespace DemoAPI.Shared.Services.APIs.Realizations
 {

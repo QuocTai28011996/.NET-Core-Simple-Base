@@ -7,7 +7,7 @@ using DemoAPI.Shared.APIRequest.Course;
 using DemoAPI.Shared.APIResponse;
 using DemoAPI.Shared.APIResponse.Course;
 using DemoAPI.Util.Constants;
-using DbService = DemoAPI.Service.Services;
+using DbService = DemoAPI.Service.Services.EntityService;
 
 namespace DemoAPI.Shared.Services.APIs.Realizations
 {

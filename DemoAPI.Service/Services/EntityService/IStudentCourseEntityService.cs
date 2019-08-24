@@ -1,7 +1,7 @@
 ﻿using DemoAPI.Data.Models.Database;
 using DemoAPI.Service.Services.EntityService;
 
-namespace DemoAPI.Service.Services
+namespace DemoAPI.Service.Services.EntityService
 {
 	public interface IStudentCourseEntityService : IEntityService<StudentCourse>
 	{
