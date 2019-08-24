@@ -15,11 +15,18 @@ using DbService = DemoAPI.Service.Services;
 
 namespace DemoAPI.Shared.Services.APIs.Realizations
 {
+	public interface IStudentService
+	{
+		StudentBaseResponse Create(StudentRequest student);
+		PagingQueryResponse<StudentBaseResponse> GetStudentForPaging(IDictionary<string, string> @params);
+		StudentBaseResponse GetAStudent(StudentRequest student);
+	}
+
 	public class StudentService: IStudentService
 	{
-		private readonly DbService.IStudentService _studentService;
+		private readonly DbService.IStudentEntityService _studentService;
 
-		public StudentService(DbService.IStudentService studentService)
+		public StudentService(DbService.IStudentEntityService studentService)
 		{
 			_studentService = studentService;
 		}

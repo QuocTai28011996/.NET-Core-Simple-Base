@@ -17,13 +17,19 @@ using DbService = DemoAPI.Service.Services;
 
 namespace DemoAPI.Shared.Services.APIs.Realizations
 {
+	public interface IStudentCourseService
+	{
+		ResponseMessage RegisterACourseForAStudent(Guid studentId, Guid courseId);
+		StudentCourseResponse GetListOfCourseOfAStudent(string studentId);
+	}
+
 	public class StudentCourseService : IStudentCourseService
 	{
-		private readonly DbService.IStudentService _studentService;
-		private readonly DbService.ICourseService _courseService;
-		private readonly DbService.IStudentCourseService _studentCourseService;
+		private readonly DbService.IStudentEntityService _studentService;
+		private readonly DbService.ICourseEntityService _courseService;
+		private readonly DbService.IStudentCourseEntityService _studentCourseService;
 
-		public StudentCourseService(DbService.IStudentService studentService, DbService.ICourseService courseService, DbService.IStudentCourseService studentCourseService)
+		public StudentCourseService(DbService.IStudentEntityService studentService, DbService.ICourseEntityService courseService, DbService.IStudentCourseEntityService studentCourseService)
 		{
 			_studentService = studentService;
 			_courseService = courseService;

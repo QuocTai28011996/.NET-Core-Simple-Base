@@ -1,10 +1,10 @@
 ﻿using DemoAPI.Data.EF;
-using DemoAPI.Data.EF.DataContext;
 using DemoAPI.Shared.Authorization.Handlers;
-using DemoAPI.Shared.Extensions;
 using DemoAPI.Shared.Filters;
 using DemoAPI.Shared.Helpers;
 using DemoAPI.Util.Utils;
+using DemoAPI.Shared.Extensions;
+using DemoAPI.Data.EF.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;

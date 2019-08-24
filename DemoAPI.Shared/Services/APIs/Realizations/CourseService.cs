@@ -11,11 +11,17 @@ using DbService = DemoAPI.Service.Services;
 
 namespace DemoAPI.Shared.Services.APIs.Realizations
 {
+	public interface ICourseService
+	{
+		CourseBaseResponse Create(CourseRequest courseRequest);
+		PagingQueryResponse<CourseBaseResponse> GetListOfCourse(IDictionary<string, string> @params);
+	}
+
 	public class CourseService : ICourseService
 	{
-		private readonly DbService.ICourseService _courseService;
+		private readonly DbService.ICourseEntityService _courseService;
 
-		public CourseService(DbService.ICourseService courseService)
+		public CourseService(DbService.ICourseEntityService courseService)
 		{
 			_courseService = courseService;
 		}

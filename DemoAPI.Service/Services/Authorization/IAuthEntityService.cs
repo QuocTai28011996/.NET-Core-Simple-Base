@@ -13,7 +13,7 @@ using DemoAPI.Service.Services.EntityService;
 
 namespace DemoAPI.Service.Services.Authorization
 {
-	public interface IAuthService : IEntityService<User>
+	public interface IAuthEntityService : IEntityService<User>
 	{
 		ResponseMessage ValidateLogin(LoginRequest request);
 
@@ -26,7 +26,7 @@ namespace DemoAPI.Service.Services.Authorization
 		(byte[] Salt, byte[] Hash) GenerateSecurePassword(string rawPassword);
 	}
 
-	public class UserService : EntityService<User>, IAuthService
+	public class UserEntityService : EntityService<User>, IAuthEntityService
 	{
 		#region Private Fields
 		private const string DefaultUserPassword = "user@123";
@@ -35,7 +35,7 @@ namespace DemoAPI.Service.Services.Authorization
 
 		#region Constructor
 
-		public UserService()
+		public UserEntityService()
 		{
 		}
 

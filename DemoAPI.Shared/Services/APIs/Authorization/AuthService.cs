@@ -16,9 +16,9 @@ namespace DemoAPI.Shared.Services.APIs.Authorization
 	/// <inheritdoc />
 	public class AuthService : IAuthService
 	{
-		private readonly DbService.IAuthService _authService;
+		private readonly DbService.IAuthEntityService _authService;
 
-		public AuthService(DbService.IAuthService authService)
+		public AuthService(DbService.IAuthEntityService authService)
 		{
 			_authService = authService;
 		}

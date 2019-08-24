@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using DemoAPI.Data.Models;
 using DemoAPI.Shared.APIResponse.StudentCourse;
-using Microsoft.AspNetCore.Authorization;
+using DemoAPI.Shared.Services.APIs.Realizations;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,9 +15,9 @@ namespace DemoAPI.API.Controllers
 	[ApiController]
 	public class StudentCourseController : ControllerBase
 	{
-		private readonly Shared.Services.APIs.IStudentCourseService _studentCourseService;
+		private readonly IStudentCourseService _studentCourseService;
 
-		public StudentCourseController(Shared.Services.APIs.IStudentCourseService studentCourseService)
+		public StudentCourseController(IStudentCourseService studentCourseService)
 		{
 			_studentCourseService = studentCourseService;
 		}
@@ -32,7 +31,6 @@ namespace DemoAPI.API.Controllers
 
 		[HttpPost("registerCourse")]
 		[Produces("application/json")]
-		[Authorize]
 		public ResponseMessage RegisterACourseForAStudent(Guid studentId, Guid courseId)
 		{
 			return _studentCourseService.RegisterACourseForAStudent(studentId, courseId);
@@ -46,7 +44,6 @@ namespace DemoAPI.API.Controllers
 
 		[HttpGet("getCourses")]
 		[Produces("application/json")]
-		[Authorize]
 		public StudentCourseResponse GetListOfCourseOfAStudent(string studentId)
 		{
 			return _studentCourseService.GetListOfCourseOfAStudent(studentId);

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using DemoAPI.Shared.APIRequest.Course;
-using DemoAPI.Shared.APIRequest.Student;
+﻿using DemoAPI.Shared.APIRequest.Course;
 using DemoAPI.Shared.APIResponse.Course;
-using DemoAPI.Shared.APIResponse.Student;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using DemoAPI.Shared.Services.APIs.Realizations;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,9 +13,9 @@ namespace DemoAPI.API.Controllers
 	[ApiController]
 	public class CourseController : ControllerBase
 	{
-		private readonly Shared.Services.APIs.ICourseService _courseService;
+		private readonly ICourseService _courseService;
 
-		public CourseController(Shared.Services.APIs.ICourseService courseService)
+		public CourseController(ICourseService courseService)
 		{
 			_courseService = courseService;
 		}

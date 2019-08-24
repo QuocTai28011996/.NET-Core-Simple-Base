@@ -4,6 +4,7 @@ using DemoAPI.Shared.APIResponse;
 using DemoAPI.Shared.APIResponse.Student;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using DemoAPI.Shared.Services.APIs.Realizations;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,9 +15,9 @@ namespace DemoAPI.API.Controllers
 	[ApiController]
 	public class StudentController : ControllerBase
 	{
-		private readonly Shared.Services.APIs.IStudentService _studentService;
+		private readonly IStudentService _studentService;
 
-		public StudentController(Shared.Services.APIs.IStudentService studentService)
+		public StudentController(IStudentService studentService)
 		{
 			_studentService = studentService;
 		}
